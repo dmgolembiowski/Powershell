@@ -1,0 +1,1 @@
+create "Azure Run As Account" as described in https://docs.microsoft.com/en-us/azure/automation/manage-runas-account#create-a-run-as-account-in-the-portal

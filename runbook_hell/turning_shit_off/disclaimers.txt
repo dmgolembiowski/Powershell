@@ -1,0 +1,32 @@
+1) The runbook supports only resource manager virtual machines, support of classic VMs is deprecated in this version.
+2) The runbook authenticates to Azure as a Service Principal: https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli See "AsureConnectionName" parameter description.
+3) The name or ID of Azure subscription in which the resources will be created. By default, the
+   runbook will use the value defined in the Variable setting named "Default Azure Subscription"
+4) The name of the Automation connection asset with type of "AzureServicePrincipal"
+  that contains the information required to connect to resources
+     in target Azure subscription as a Service Principal defined in "Azure Run As Account".
+        https://docs.microsoft.com/en-us/azure/automation/automation-connections
+        Azure Run As Account can be created in different ways:
+        https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account
+        https://docs.microsoft.com/en-us/azure/automation/manage-runas-account#create-a-run-as-account-in-the-portal
+5) (gah too much formatting) (time to be inconsisten)
+
+        By default, the runbook will use the value defined in the Variable setting named "Default AzureRunAsConnection".
+        Check if connection with name "AzureRunAsConnection" with type "AzureServicePrincipal" already exists in Automation Account in Shared Resources\Connections
+        If no, create "Azure Run As Account" as described in https://docs.microsoft.com/en-us/azure/automation/manage-runas-account#create-a-run-as-account-in-the-portal 
+        Connection "AzureRunAsConnection" should have been created automatically during creation "Azure Run As Account".
+
+    .PARAMETER Simulate
+        If $true, the runbook will not perform any power actions and will only simulate evaluating the tagged schedules. Use this
+        to test your runbook to see what it will do when run normally (Simulate = $false).
+
+    .EXAMPLE
+        For testing examples, see the documentation at:
+
+        https://automys.com/library/asset/scheduled-virtual-machine-shutdown-startup-microsoft-azure
+    
+    .INPUTS
+        None.
+
+    .OUTPUTS
+        Human-readable informational and error messages produced during the job. Not intended to be consumed by another runbook.

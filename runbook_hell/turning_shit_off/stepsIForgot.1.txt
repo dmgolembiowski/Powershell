@@ -1,0 +1,1 @@
+Check if connection with name "AzureRunAsConnection" with type "AzureServicePrincipal" already exists in Automation Account in Shared Resources\Connections
